@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Kreative workshops hos CraftVilla - Mosaikk, Akvarell og Lerretsmaling">
+  <title>CraftVilla - Workshop</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+  <header class="navbar">
+    <div class="logo-container">
+      <a href="#">
+        <img src="./images/loghi.jpg" alt="Craftsvilla Logo" class="logo-img">
+      </a>
+    </div>
+
+    <nav class="nav-links">
+      <ul>
+        <li><a href="#home" class="nav-item">HOME</a></li>
+        <li><a href="#booking" class="nav-item">BOOKING</a></li>
+        <li><a href="#galleri-cover" class="nav-item">GALLERI</a></li>
+        <li><a href="#tilbakemelding-cover" class="nav-item">TILBAKEMELDING</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <section class="hero" id="home">
+    <h1 class="testo-copertina">SKAP,<br>DEL, NYTT!</h1>
+  </section>
+
+  <section class="hero-text-container">
+    <div class="hero-text">
+      <h2>KREATIVE WORKSHOPS FOR ALLE!</h2>
+      <p>Hos CRAFTSVILLA kombinerer vi kreativitet, samhold og avslapning.</p>
+      <p>Bli med på våre kunstworkshops og skap minner sammen!</p>
+    </div>
+  </section>
+
+
+  <div class="booking-text" id="booking">
+    <h2>Book din workshop på én, to, tre...</h2>
+  </div>
+
+  <div class="valgt">
+    <h3>1. Velg kunstformen</h3>
+  </div>
+
+  <section class="card">
+    <div class="kunstformen">
+      <img src="./images/mosaico.jpg" alt="Mosaikk kunst" class="image-card">
+      <h4 class="title-card">Mosaikk kunst</h4>
+      <p class="price-card">400 kr</p>
+      <p class="sett-card">Sett inkluderer:<br>Ramme, A4 størrelse treplate, små fargede steiner, gummi.</p>
+      <button class="velg" onclick="selectWorkshop('Mosaikk kunst')">Velg</button>
+    </div>
+
+    <div class="kunstformen">
+      <img src="./images/acquerelli.jpg" alt="Akvarellmaling" class="image-card">
+      <h4 class="title-card">Akvarellmaling</h4>
+      <p class="price-card">200 kr</p>
+      <p class="sett-card">Sett inkluderer:<br>Ramme, pensler, akvarellfarger, akvarellpapir med designmal.</p>
+      <button class="velg" onclick="selectWorkshop('Akvarellmaling')">Velg</button>
+    </div>
+
+    <div class="kunstformen">
+      <img src="./images/quadretti.jpg" alt="Lerretsmaling" class="image-card">
+      <h4 class="title-card">Lerretsmaling</h4>
+      <p class="price-card">300 kr</p>
+      <p class="sett-card">Sett inkluderer:<br>Ramme, akrylpapir med designmal, akrylfarger, pensler.</p>
+      <button class="velg" onclick="selectWorkshop('Lerretsmaling')">Velg</button>
+    </div>
+  </section>
+
+
+  <section class="booking-detaljer">
+    <div class="booking-wrapper">
+      
+
+      <div class="step-container">
+        <h3 class="step-title">2. Velg dato og tid</h3>
+        
+        <div class="booking-grid">
+          <div class="calendar-container">
+            <iframe 
+              src="https://calendar.google.com/calendar/embed?src=addressbook%23contacts%40group.v.calendar.google.com&ctz=Europe%2FOslo" 
+              style="border:0" 
+              width="100%" 
+              height="300" 
+              frameborder="0" 
+              scrolling="no">
+            </iframe>
+          </div>
+
+          <div class="tider-box">
+            <h4 class="tider-title">Tilgjengelige tider</h4>
+            <div class="tider-grid">
+              <button type="button" class="time-btn" onclick="selectTime(this)">12:00</button>
+              <button type="button" class="time-btn" onclick="selectTime(this)">14:00</button>
+              <button type="button" class="time-btn" onclick="selectTime(this)">16:00</button>
+              <button type="button" class="time-btn" onclick="selectTime(this)">17:30</button>
+              <button type="button" class="time-btn" onclick="selectTime(this)">18:00</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="step-container">
+        <h3 class="step-title">3. Dine detaljer</h3>
+        
+        <form class="detaljer-form" onsubmit="handleBookingSubmit(event)">
+          <div class="inputs-grid">
+            <div class="form-group">
+              <label for="booking-dato" class="input-label">Velg dato:</label>
+              <input type="date" id="booking-dato" class="input-field" required>
+            </div>
+
+            <div class="form-group">
+              <label for="booking-navn" class="input-label">Navn:</label>
+              <input type="text" id="booking-navn" placeholder="Ditt navn..." class="input-field" required>
+            </div>
+
+            <div class="form-group">
+              <label for="booking-email" class="input-label">E-post:</label>
+              <input type="email" id="booking-email" placeholder="Din e-post..." class="input-field" required>
+            </div>
+
+            <div class="form-group">
+              <label for="booking-deltakere" class="input-label">Antall deltakere:</label>
+              <input type="number" id="booking-deltakere" placeholder="1" class="input-field" min="1" required>
+            </div>
+          </div>
+          <button type="submit" class="book-btn">Book workshop</button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+
+  <section id="galleri-cover">
+    <div class="testo-copertina2">VÅRT GALLERI</div>
+  </section>
+
+
+  <section class="gallery-section">
+    <div class="gallery-container">
+      <div class="featured-image-box">
+        <img id="featured-img" src="./images/artista.jpg" alt="Utvalgt bilde">
+      </div>
+
+      <div class="thumbnails-grid">
+        <img class="thumb active-thumb" src="./images/giallo.jpg" alt="Bilde 1" onclick="changeImage(this)">
+        <img class="thumb" src="./images/disegni.jpg" alt="Bilde 2" onclick="changeImage(this)">
+        <img class="thumb" src="./images/quadretti2.jpg" alt="Bilde 3" onclick="changeImage(this)">
+        <img class="thumb" src="./images/disegnoacq1.jpg" alt="Bilde 4" onclick="changeImage(this)">
+        <img class="thumb" src="./images/disegnoacq2.jpg" alt="Bilde 5" onclick="changeImage(this)">
+        <img class="thumb" src="./images/delfino.jpg" alt="Bilde 6" onclick="changeImage(this)">
+        <img class="thumb" src="./images/faccia.jpg" alt="Bilde 7" onclick="changeImage(this)">
+        <img class="thumb" src="./images/fiori.jpg" alt="Bilde 8" onclick="changeImage(this)">
+        <img class="thumb" src="./images/cavalletti.jpg" alt="Bilde 9" onclick="changeImage(this)">
+        <img class="thumb" src="./images/mediterr.jpg" alt="Bilde 10" onclick="changeImage(this)">
+      </div>
+    </div>
+  </section>
+
+
+  <section class="tilbakemelding-cover" id="tilbakemelding-cover">
+    <div class="testo-copertina3">HVA VÅRE<br>KUNDER SIER!</div>
+  </section>
+
+  <section class="hero-text-container">
+    <div class="hero-text">
+      <h2>VI SETTER STOR PRIS PÅ ALLE TILBAKEMELDINGER!</h2>
+      <p>Her er noen av erfaringene fra våre deltakere!</p>
+    </div>
+  </section>
+
+  <section class="tilbakemelding-box">
+    <div class="kunde">
+      <div class="bilde-navn">
+        <img src="./images/colleghe.jpg" alt="Kollegaer" class="kunde-bilde">
+        <h3 class="kunde-navn">Anna & Elsa</h3>
+      </div>
+      <p class="kunde-melding">"Perfekt som teambuilding! God stemning, flinke instruktører og alle fikk til noe fint!"</p>
+      <div class="stars">★★★★☆</div>
+    </div>
+
+    <div class="kunde">
+      <div class="bilde-navn">
+        <img src="./images/fratelli.jpg" alt="Søsken" class="kunde-bilde">
+        <h3 class="kunde-navn">Isa og Brede</h3>
+      </div>
+      <p class="kunde-melding">"Fin opplevelse med lillebror og bestemor. Vi hadde det gøy!"</p>
+      <div class="stars">★★★★★</div>
+    </div>
+
+    <div class="kunde">
+      <div class="bilde-navn">
+        <img src="./images/famiglia.jpg" alt="Familie" class="kunde-bilde">
+        <h3 class="kunde-navn">Cesilie og familie</h3>
+      </div>
+      <p class="kunde-melding">“En fantastisk opplevelse! Vi koste oss masse i et hyggelig miljø. Kommer definitivt tilbake!”</p>
+      <div class="stars">★★★★★</div>
+    </div>
+
+    <div class="kunde">
+      <div class="bilde-navn">
+        <img src="./images/amici.jpg" alt="Venner" class="kunde-bilde">
+        <h3 class="kunde-navn">Rino og venner</h3>
+      </div>
+      <p class="kunde-melding">"Avslappende, kreativt og inspirerende"</p>
+      <div class="stars">★★★★☆</div>
+    </div>
+  </section>
+
+
+  <section class="del-opplevelse-section">
+    <div class="del-opplevelse-container">
+      <h3 class="step-title center-title">Del din opplevelse</h3>
+      
+      <form class="opplevelse-form" onsubmit="handleReviewSubmit(event)">
+        <div class="form-group-row">
+          <div class="form-group full-width">
+            <label for="review-navn" class="input-label">Navn:</label>
+            <input type="text" id="review-navn" placeholder="Ditt navn..." class="input-field" required>
+          </div>
+          <div class="form-group full-width">
+            <label for="review-email" class="input-label">E-post:</label>
+            <input type="email" id="review-email" placeholder="Din e-post..." class="input-field" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="review-kunstform" class="input-label">Hvilken kunstform deltok du på?</label>
+          <input type="text" id="review-kunstform" placeholder="f.eks. Mosaikk kunst" class="input-field full-width" required>
+        </div>
+
+        <div class="form-group">
+          <label for="review-melding" class="input-label">Din tilbakemelding:</label>
+          <textarea id="review-melding" placeholder="Skriv din opplevelse her..." class="input-field textarea-field" required></textarea>
+        </div>
+
+        <button type="submit" class="book-btn center-btn">Send tilbakemelding</button>
+      </form>
+    </div>
+  </section>
+
+
+  <footer>
+    <div class="footer-logo">
+      <img src="./images/logosmall.png" alt="Logo CraftsVilla">
+    </div>
+    
+    <div class="kontakt-info">
+        <ul>
+            <li>Kontakt oss</li>
+            <li>Adressen</li>
+            <li>Telefonnummer</li>
+            <li>Våre instruktører</li>
+        </ul>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
